@@ -108,8 +108,6 @@ export default function FeaturesSectionLight() {
   const [activeTab, setActiveTab] = useState("Poss");
   const [activeCard, setActiveCard] = useState(0);
   const tabs = ["Poss", "Payroll", "Invoice", "Purchase", "Tasks"];
-  const themeBlue = "#1a73e8"; // A standard blue
-  const themeOrange = "#ea8600"; // A vibrant orange
   return (
     <section className="relative py-12 bg-[#F9FAFB] overflow-hidden font-sans text-gray-900">
       {/* Subtle Top Gradient Fade */}
@@ -118,7 +116,7 @@ export default function FeaturesSectionLight() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-7xl font-extrabold tracking-tighter text-gray-900 mb-6 leading-[1.1]">
+          <h2 className="text-4xl md:text-7xl font-bold tracking-tighter text-gray-900 mb-6 leading-[1.1]">
             Keep everything in <br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-gray-900 via-orange-400 to-purple-800">
               one place.

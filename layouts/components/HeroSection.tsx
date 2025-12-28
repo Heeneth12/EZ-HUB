@@ -25,7 +25,7 @@ export default function OdooHeroDark() {
 
         {/* 2. Volumetric Cone (Fog) */}
         <div
-          className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] rounded-full pointer-events-none opacity-20 blur-3xl"
+          className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-200 h-200 rounded-full pointer-events-none opacity-20 blur-3xl"
           style={{
             background:
               "conic-gradient(from 180deg at 50% 0%, transparent 45%, white 50%, transparent 55%)",

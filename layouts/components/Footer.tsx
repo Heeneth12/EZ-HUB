@@ -33,13 +33,13 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#050505] pt-20 pb-10 border-t border-white/10 font-sans text-white overflow-hidden">
+    <footer className="relative bg-[#050505] pt-12 pb-10 border-t border-white/10 font-sans text-white overflow-hidden">
       {/* Static Background Glow (No Motion) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-white-500/50 to-transparent"></div>
       <div className="absolute bottom-0 left-0 w-125 h-125 bg-white-900/10 blur-[120px] rounded-full pointer-events-none -z-10"></div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-8">
           {/* Brand Column (Span 2) */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
@@ -142,7 +142,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-gray-500 text-sm">
             © 2024 Odoo Bits Inc. All rights reserved.
           </div>

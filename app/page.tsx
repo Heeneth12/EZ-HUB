@@ -1,5 +1,6 @@
 import HeroSection from "@/layouts/components/HeroSection";
 import FeatureSections from "@/layouts/components/FeatureSections";
+import { BouncyCardsFeatures } from "@/layouts/ui/BouncyCardsFeatures";
 
 export default function Home() {
   return (
