@@ -71,7 +71,6 @@ export default function AboutUs() {
                 {[
                     { label: "Users", value: "12M+", icon: Users, color: "text-blue-600" },
                     { label: "Countries", value: "120+", icon: Globe, color: "text-orange-500" },
-                    { label: "Partners", value: "5,000+", icon: HandshakeIcon, color: "text-purple-600" },
                     { label: "Happiness", value: "100%", icon: Smile, color: "text-green-600" },
                 ].map((stat, idx) => (
                     <div key={idx} className="bg-white/60 backdrop-blur-lg border border-white/50 shadow-lg rounded-3xl p-8 text-center hover:-translate-y-2 transition-transform duration-300 group">
@@ -224,14 +223,3 @@ export default function AboutUs() {
     </div>
   );
 }
-
-// Helper Icon (Handshake wasn't imported in Lucide by default sometimes, mocking it or using a different one)
-const HandshakeIcon = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
-        <path d="m11 17 2 2a1 1 0 1 0 3-3"/>
-        <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 2 0l.47-.28c2.63-1.57 5.86-.27 7.25 2.54a2 2 0 0 1-.5 2.12l-9.29 9.29a4 4 0 0 1-5.66 0L15 17"/>
-        <path d="m5 11-1 1"/>
-        <path d="m2 8 2 2"/>
-        <path d="m7 5 1 1"/>
-    </svg>
-);
