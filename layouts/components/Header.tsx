@@ -11,10 +11,10 @@ const navigation = [
     href: "#", 
     // Added dropdown items here
     dropdown: [
+      { name: "Inventory", href: "/inventory" },
       { name: "Finance", href: "/finance" },
       { name: "Sales", href: "/sales" },
       { name: "Websites", href: "/websites" },
-      { name: "Inventory", href: "/inventory" },
       { name: "HR", href: "/hr" },
     ]
   }, 

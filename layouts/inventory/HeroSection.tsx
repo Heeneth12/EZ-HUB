@@ -3,10 +3,12 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import Inv from "@/assets/images/Inv-bg.png";
 import Image from "next/image";
+import { redirect } from "next/navigation";
+import Link from "next/link";
 
 export default function HeroSection() {
   const handleOpenInventoryApp = () => {
-    window.open("https://app.ez-hub.in/", "_blank"); // new tab
+    window.open("https://app.ez-hub.in/login?demo=true", "_blank");
   };
 
   return (
@@ -62,9 +64,11 @@ export default function HeroSection() {
             Start Free Trial
             <ArrowRight size={16} />
           </button>
-          <button className="h-12 px-8 rounded-full bg-white/5 border border-white/10 text-white font-medium text-sm hover:bg-white/10 transition-all duration-300 backdrop-blur-md">
-            Book Demo
-          </button>
+          <Link href="/contact">
+            <button className="h-12 px-8 rounded-full bg-white/5 border border-white/10 text-white font-medium text-sm hover:bg-white/10 transition-all duration-300 backdrop-blur-md">
+              Book Demo
+            </button>
+          </Link>
         </div>
 
         {/* --- 3D DASHBOARD MOCKUP --- */}
