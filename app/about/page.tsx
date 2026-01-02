@@ -9,6 +9,37 @@ import {
   Award,
 } from "lucide-react";
 
+const stats = [
+  {
+    label: "Users",
+    value: "12M+",
+    icon: Users,
+    color: "text-blue-400",
+    bg: "bg-blue-500/10",
+  },
+  {
+    label: "Countries",
+    value: "120+",
+    icon: Globe,
+    color: "text-orange-400",
+    bg: "bg-orange-500/10",
+  },
+  {
+    label: "Happiness",
+    value: "100%",
+    icon: Smile,
+    color: "text-green-400",
+    bg: "bg-green-500/10",
+  },
+  {
+    label: "Growth",
+    value: "3x",
+    icon: Zap,
+    color: "text-purple-400",
+    bg: "bg-purple-500/10",
+  },
+];
+
 export default function AboutUsDark() {
   return (
     <div className="min-h-screen bg-[#050505] font-sans text-white overflow-x-hidden selection:bg-purple-500/30">
@@ -21,12 +52,6 @@ export default function AboutUsDark() {
 
       <main className="relative z-10">
         <div className="pt-32 pb-20 px-6 text-center max-w-4xl mx-auto">
-          <div className="inline-block mb-6">
-            <span className="py-1.5 px-4 rounded-full bg-white/5 text-blue-300 font-bold text-xs border border-white/10 tracking-widest uppercase hover:bg-white/10 transition-colors cursor-default backdrop-blur-md">
-              Our Story
-            </span>
-          </div>
-
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight leading-tight">
             We are building the <br />
             <span className="relative inline-block px-4">
@@ -69,45 +94,16 @@ export default function AboutUsDark() {
 
         <div className="max-w-6xl mx-auto px-4 mb-32">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              {
-                label: "Users",
-                value: "12M+",
-                icon: Users,
-                color: "text-blue-400",
-                bg: "bg-blue-500/10",
-              },
-              {
-                label: "Countries",
-                value: "120+",
-                icon: Globe,
-                color: "text-orange-400",
-                bg: "bg-orange-500/10",
-              },
-              {
-                label: "Happiness",
-                value: "100%",
-                icon: Smile,
-                color: "text-green-400",
-                bg: "bg-green-500/10",
-              },
-              {
-                label: "Growth",
-                value: "3x",
-                icon: Zap,
-                color: "text-purple-400",
-                bg: "bg-purple-500/10",
-              },
-            ].map((stat, idx) => (
+            {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white/5 flex backdrop-blur-xl border border-white/5 hover:border-white/20 rounded-3xl p-8 text-center hover:-translate-y-2 transition-all duration-300 group shadow-2xl shadow-black/50">
+                className="bg-white/5 flex flex-row items-center text-left gap-4 backdrop-blur-xl border border-white/5 hover:border-white/20 rounded-3xl p-6 hover:-translate-y-2 transition-all duration-300 group shadow-2xl shadow-black/50">
                 <div
-                  className={`w-12 h-12 mx-auto mb-4 rounded-xl flex items-center justify-center ${stat.bg} ${stat.color} group-hover:scale-110 transition-transform duration-300`}>
+                  className={`w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center ${stat.bg} ${stat.color} group-hover:rotate-12 transition-transform duration-300`}>
                   <stat.icon size={24} />
                 </div>
                 <div>
-                  <div className="text-4xl font-black text-white mb-1">
+                  <div className="text-3xl font-black text-white leading-none mb-1">
                     {stat.value}
                   </div>
                   <div className="text-xs font-bold text-gray-500 uppercase tracking-widest group-hover:text-gray-300 transition-colors">
