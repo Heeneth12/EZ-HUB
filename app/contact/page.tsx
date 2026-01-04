@@ -1,258 +1,230 @@
 "use client";
+
+import React, { useState, useEffect } from "react";
 import {
-  Briefcase,
-  HelpCircle,
-  MessageCircle,
-  ArrowRight,
-  Send,
+  Mail,
   MapPin,
+  Phone,
+  Send,
+  User,
+  Building2,
+  MessageSquare,
+  ArrowRight,
+  Globe,
+  HelpCircle
 } from "lucide-react";
 
-export default function ContactUsDark() {
-  // Theme Configuration
-  const themeBlue = "#3b82f6"; // Slightly brighter blue for dark mode
-  const themeOrange = "#f97316";
+export default function ContactUsMidnight() {
+  const [loading, setLoading] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    // Simulate API
+    setTimeout(() => {
+      setLoading(false);
+      alert("Message sent!");
+    }, 2000);
+  };
+
+  if (!mounted) return null;
 
   return (
-    <div className="min-h-screen bg-[#050505] font-sans text-white overflow-x-hidden selection:bg-blue-500/30">
-      {/* --- Background Ambient Glow --- */}
-      <div className="fixed top-[-10%] right-[-5%] w-[600px] h-[600px] pointer-events-none z-0 opacity-40 mix-blend-screen">
-        <div
-          className="absolute inset-0 rounded-full blur-[120px]"
-          style={{
-            background: `radial-gradient(circle at center, ${themeOrange} 0%, ${themeBlue} 40%, transparent 70%)`,
-          }}
-        />
-      </div>
+    <div className="min-h-screen bg-black font-sans text-white overflow-x-hidden selection:bg-white selection:text-black relative">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-size-[32px_32px] mask-image-gradient pointer-events-none"></div>
+      
+      {/* 2. Silver Ambient Glows */}
+      <div className="absolute top-[-10%] right-[-5%] w-150 h-150 rounded-full bg-white/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[-10%] w-150 h-150 rounded-full bg-zinc-500/10 blur-[120px] pointer-events-none" />
 
       <main className="relative z-10 pt-24 pb-20">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          
           {/* --- Header Section --- */}
-          <div className="text-center mb-20">
-            <h2 className="font-hand text-2xl md:text-3xl font-bold text-blue-400 mb-4 -rotate-2">
-              Get in touch!
-            </h2>
-            <h1 className="text-5xl md:text-6xl font-bold text-white tracking-tight mb-6">
-              Let's start a{" "}
-              <span className="relative inline-block px-2">
-                <span className="relative z-10">conversation.</span>
-                {/* Orange Marker SVG - Glowing */}
-                <svg
-                  className="absolute bottom-2 left-0 w-full h-4 text-orange-500/80 -z-10 blur-[1px]"
-                  viewBox="0 0 200 20"
-                  preserveAspectRatio="none"
-                  fill="currentColor"
-                >
-                  <path d="M0,10 Q100,20 200,10" stroke="currentColor" strokeWidth="12" />
-                </svg>
+          <div className="mb-20 max-w-3xl">
+            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+              Let's start a <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-400 to-zinc-600">
+                conversation.
               </span>
             </h1>
-            <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Whether you have questions about our pricing, need a demo, or want to partner with us, our team is ready to help.
+            <p className="text-sm text-zinc-400 leading-relaxed max-w-xl">
+              Whether you have questions about our pricing, need a custom demo, or want to partner with us, we are ready to answer.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             
-            {/* --- Left Column: Contact Channels (Cards) --- */}
-            <div className="lg:col-span-5 space-y-6">
+            {/* --- Left Column: Contact Methods (Styled like Auth Cards) --- */}
+            <div className="lg:col-span-5 space-y-4">
               
               {/* Card 1: Sales */}
-              <div className="group bg-white/5 hover:bg-white/10 rounded-3xl p-6 border border-white/10 hover:border-blue-500/30 shadow-lg hover:shadow-blue-900/20 transition-all duration-300 cursor-pointer relative overflow-hidden backdrop-blur-sm">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-blue-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
-                <div className="flex items-start gap-5 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/20 flex items-center justify-center">
-                    <Briefcase size={26} />
+              <div className="group p-6 rounded-2xl bg-[#0A0A0A] border border-white/10 hover:border-white/20 transition-all duration-300">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                    <Globe size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">Talk to Sales</h3>
-                    <p className="text-gray-400 text-sm mb-3">
-                      Interested in our software? Let's find the right plan for you.
+                    <h3 className="text-lg font-bold text-white mb-1">Talk to Sales</h3>
+                    <p className="text-zinc-500 text-sm mb-3">
+                      Interested in our software? Let's find the right plan.
                     </p>
-                    <span className="flex items-center text-blue-400 font-semibold text-sm group-hover:text-blue-300 transition-colors">
-                      Contact Sales <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </span>
+                    <a href="#" className="flex items-center text-white text-sm font-semibold hover:text-zinc-300 transition-colors">
+                      Contact Sales <ArrowRight size={14} className="ml-2" />
+                    </a>
                   </div>
                 </div>
               </div>
 
               {/* Card 2: Support */}
-              <div className="group bg-white/5 hover:bg-white/10 rounded-3xl p-6 border border-white/10 hover:border-orange-500/30 shadow-lg hover:shadow-orange-900/20 transition-all duration-300 cursor-pointer relative overflow-hidden backdrop-blur-sm">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
-                <div className="flex items-start gap-5 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-orange-600/20 text-orange-400 border border-orange-500/20 flex items-center justify-center">
-                    <HelpCircle size={26} />
+              <div className="group p-6 rounded-2xl bg-[#0A0A0A] border border-white/10 hover:border-white/20 transition-all duration-300">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                    <HelpCircle size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">Help & Support</h3>
-                    <p className="text-gray-400 text-sm mb-3">
-                      Current customer? Get help with your account or technical issues.
+                    <h3 className="text-lg font-bold text-white mb-1">Help & Support</h3>
+                    <p className="text-zinc-500 text-sm mb-3">
+                      Get help with your account or technical issues.
                     </p>
-                    <span className="flex items-center text-orange-400 font-semibold text-sm group-hover:text-orange-300 transition-colors">
-                      Visit Help Center <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </span>
+                    <a href="#" className="flex items-center text-white text-sm font-semibold hover:text-zinc-300 transition-colors">
+                      Visit Help Center <ArrowRight size={14} className="ml-2" />
+                    </a>
                   </div>
                 </div>
               </div>
 
-              {/* Card 3: General */}
-              <div className="group bg-white/5 hover:bg-white/10 rounded-3xl p-6 border border-white/10 hover:border-gray-500/30 shadow-lg transition-all duration-300 cursor-pointer relative overflow-hidden backdrop-blur-sm">
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gray-500/10 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110" />
-                <div className="flex items-start gap-5 relative z-10">
-                  <div className="w-14 h-14 rounded-2xl bg-gray-700/30 text-gray-300 border border-gray-600/30 flex items-center justify-center">
-                    <MessageCircle size={26} />
+              {/* Card 3: Email */}
+              <div className="group p-6 rounded-2xl bg-[#0A0A0A] border border-white/10 hover:border-white/20 transition-all duration-300">
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-xl bg-zinc-900 border border-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                    <Mail size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-1">Media & Partners</h3>
-                    <p className="text-gray-400 text-sm mb-3">
-                      For press inquiries or partnership opportunities.
+                    <h3 className="text-lg font-bold text-white mb-1">General Inquiries</h3>
+                    <p className="text-zinc-500 text-sm mb-3">
+                      For press, partnerships, or general questions.
                     </p>
-                    <span className="flex items-center text-gray-300 font-semibold text-sm group-hover:text-white transition-colors">
-                      Email Us <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                    </span>
+                    <a href="#" className="flex items-center text-white text-sm font-semibold hover:text-zinc-300 transition-colors">
+                      hello@ezhub.in <ArrowRight size={14} className="ml-2" />
+                    </a>
                   </div>
                 </div>
               </div>
 
             </div>
 
-            {/* --- Right Column: Contact Form --- */}
+            {/* --- Right Column: The Form (Exact Auth Style) --- */}
             <div className="lg:col-span-7">
-              <div className="bg-[#111] rounded-[2.5rem] p-8 md:p-10 border border-white/10 relative overflow-hidden shadow-2xl">
-                {/* Decorative Glow inside form */}
-                <div className="absolute top-0 right-0 w-full h-1 bg-linear-to-r from-blue-600 via-purple-500 to-orange-500" />
-                <div className="absolute -top-20 -right-20 w-64 h-64 bg-blue-600/10 blur-[80px] rounded-full pointer-events-none"></div>
-
-                <h3 className="text-2xl font-bold text-white mb-8 relative z-10">Send us a message</h3>
+              <div className="bg-[#0A0A0A]/80 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 md:p-10 shadow-2xl relative overflow-hidden group">
                 
-                <form className="space-y-6 relative z-10">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-xs font-semibold text-gray-400 ml-1 uppercase tracking-wider">First Name</label>
-                      <input 
-                        type="text" 
-                        placeholder="John"
-                        className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:bg-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all outline-none"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <label className="text-xs font-semibold text-gray-400 ml-1 uppercase tracking-wider">Last Name</label>
-                      <input 
-                        type="text" 
-                        placeholder="Doe"
-                        className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:bg-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all outline-none"
-                      />
-                    </div>
-                  </div>
+                {/* Glow Effect */}
+                <div className="absolute inset-0 border border-white/0 group-hover:border-white/5 rounded-[2rem] transition-colors duration-500 pointer-events-none"></div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                      <label className="text-xs font-semibold text-gray-400 ml-1 uppercase tracking-wider">Work Email</label>
-                      <input 
-                        type="email" 
-                        placeholder="john@company.com"
-                        className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:bg-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all outline-none"
-                      />
+                <h3 className="text-2xl font-bold text-white mb-8">Send us a message</h3>
+                
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  
+                  {/* Row 1 */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label className="block text-xs font-semibold text-zinc-500 mb-1.5 ml-1 uppercase tracking-wider">First Name</label>
+                        <div className="relative group">
+                            <User className="absolute left-3 top-2.5 w-4 h-4 text-zinc-600 group-focus-within:text-white transition-colors" />
+                            <input 
+                              type="text" 
+                              placeholder="John"
+                              className="w-full bg-black border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-zinc-200 placeholder-zinc-700 outline-none transition-all focus:bg-zinc-900/50 focus:border-white/50 focus:ring-1 focus:ring-white/20"
+                            />
+                        </div>
                     </div>
-                    <div className="space-y-2">
-                      <label className="text-xs font-semibold text-gray-400 ml-1 uppercase tracking-wider">Phone Number</label>
-                      <input 
-                        type="tel" 
-                        placeholder="+1 (555) 000-0000"
-                        className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:bg-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all outline-none"
-                      />
+                    <div>
+                        <label className="block text-xs font-semibold text-zinc-500 mb-1.5 ml-1 uppercase tracking-wider">Last Name</label>
+                        <div className="relative group">
+                            <User className="absolute left-3 top-2.5 w-4 h-4 text-zinc-600 group-focus-within:text-white transition-colors" />
+                            <input 
+                              type="text" 
+                              placeholder="Doe"
+                              className="w-full bg-black border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-zinc-200 placeholder-zinc-700 outline-none transition-all focus:bg-zinc-900/50 focus:border-white/50 focus:ring-1 focus:ring-white/20"
+                            />
+                        </div>
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold text-gray-400 ml-1 uppercase tracking-wider">Company Name</label>
-                    <input 
-                      type="text" 
-                      placeholder="Your Business Ltd."
-                      className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:bg-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all outline-none"
-                    />
+                  {/* Row 2 */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label className="block text-xs font-semibold text-zinc-500 mb-1.5 ml-1 uppercase tracking-wider">Email</label>
+                        <div className="relative group">
+                            <Mail className="absolute left-3 top-2.5 w-4 h-4 text-zinc-600 group-focus-within:text-white transition-colors" />
+                            <input 
+                              type="email" 
+                              placeholder="john@company.com"
+                              className="w-full bg-black border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-zinc-200 placeholder-zinc-700 outline-none transition-all focus:bg-zinc-900/50 focus:border-white/50 focus:ring-1 focus:ring-white/20"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label className="block text-xs font-semibold text-zinc-500 mb-1.5 ml-1 uppercase tracking-wider">Phone</label>
+                        <div className="relative group">
+                            <Phone className="absolute left-3 top-2.5 w-4 h-4 text-zinc-600 group-focus-within:text-white transition-colors" />
+                            <input 
+                              type="tel" 
+                              placeholder="+1 (555) 000-0000"
+                              className="w-full bg-black border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-zinc-200 placeholder-zinc-700 outline-none transition-all focus:bg-zinc-900/50 focus:border-white/50 focus:ring-1 focus:ring-white/20"
+                            />
+                        </div>
+                    </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold text-gray-400 ml-1 uppercase tracking-wider">How can we help?</label>
-                    <textarea 
-                      rows={4}
-                      placeholder="Tell us a bit about your needs..."
-                      className="w-full px-4 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:bg-white/10 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all outline-none resize-none"
-                    />
+                  {/* Company */}
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-500 mb-1.5 ml-1 uppercase tracking-wider">Company</label>
+                    <div className="relative group">
+                        <Building2 className="absolute left-3 top-2.5 w-4 h-4 text-zinc-600 group-focus-within:text-white transition-colors" />
+                        <input 
+                          type="text" 
+                          placeholder="Your Business Ltd."
+                          className="w-full bg-black border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-zinc-200 placeholder-zinc-700 outline-none transition-all focus:bg-zinc-900/50 focus:border-white/50 focus:ring-1 focus:ring-white/20"
+                        />
+                    </div>
                   </div>
 
-                  <div className="pt-4">
+                  {/* Message (TextArea) */}
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-500 mb-1.5 ml-1 uppercase tracking-wider">Message</label>
+                    <div className="relative group">
+                        <MessageSquare className="absolute left-3 top-3 w-4 h-4 text-zinc-600 group-focus-within:text-white transition-colors" />
+                        <textarea 
+                          rows={4}
+                          placeholder="Tell us about your project..."
+                          className="w-full bg-black border border-white/10 rounded-xl py-2.5 pl-9 pr-4 text-sm text-zinc-200 placeholder-zinc-700 outline-none transition-all focus:bg-zinc-900/50 focus:border-white/50 focus:ring-1 focus:ring-white/20 resize-none"
+                        />
+                    </div>
+                  </div>
+
+                  {/* Submit Button (Auth Style) */}
+                  <div className="pt-2">
                     <button 
-                      type="button"
-                      className="w-full py-4 px-8 rounded-xl text-white font-bold text-lg shadow-lg shadow-blue-900/20 hover:shadow-blue-600/40 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 group"
-                      style={{ background: `linear-gradient(135deg, ${themeBlue}, #1e40af)` }}
+                      type="submit"
+                      disabled={loading}
+                      className="w-full relative overflow-hidden rounded-xl py-3.5 bg-white text-black font-bold text-sm tracking-wide transition-all hover:bg-zinc-200 active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(255,255,255,0.1)]"
                     >
-                      Send Message <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                      <span className="relative flex items-center justify-center gap-2">
+                        {loading ? "Sending..." : "Send Message"}
+                        {!loading && <Send size={16} />}
+                      </span>
                     </button>
-                    <p className="text-center text-xs text-gray-500 mt-4">
-                        By sending this message, you agree to our <a href="#" className="underline hover:text-blue-400 transition-colors">Terms</a> and <a href="#" className="underline hover:text-blue-400 transition-colors">Privacy Policy</a>.
+                    <p className="text-center text-xs text-zinc-600 mt-4">
+                      By sending this message, you agree to our <a href="#" className="underline hover:text-white transition-colors">Terms</a> and <a href="#" className="underline hover:text-white transition-colors">Privacy</a>.
                     </p>
                   </div>
-
                 </form>
               </div>
             </div>
           </div>
-
-          {/* --- Locations Section --- */}
-          <div className="mt-24 pt-12 border-t border-white/10">
-            <div className="flex flex-col md:flex-row items-center justify-between mb-10">
-                <div className="text-center md:text-left">
-                    <h3 className="text-2xl font-bold text-white">Our Locations</h3>
-                    <p className="text-gray-400 mt-1">Come visit us at our offices.</p>
-                </div>
-                <a href="#" className="text-blue-400 font-semibold hover:text-blue-300 hover:underline mt-4 md:mt-0 transition-colors">View on Map &rarr;</a>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Location 1 */}
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/[0.07] transition-all">
-                    <div className="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center mb-4">
-                        <MapPin size={20} />
-                    </div>
-                    <h4 className="font-bold text-white text-lg">San Francisco</h4>
-                    <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                        123 Market Street, Suite 400<br/>
-                        San Francisco, CA 94105<br/>
-                        United States
-                    </p>
-                </div>
-
-                {/* Location 2 */}
-                <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/[0.07] transition-all">
-                    <div className="w-10 h-10 rounded-full bg-orange-500/20 text-orange-400 flex items-center justify-center mb-4">
-                        <MapPin size={20} />
-                    </div>
-                    <h4 className="font-bold text-white text-lg">Brussels (HQ)</h4>
-                    <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                        Chaussée de Namur 40<br/>
-                        1367 Grand-Rosière<br/>
-                        Belgium
-                    </p>
-                </div>
-
-                 {/* Location 3 */}
-                 <div className="p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/[0.07] transition-all">
-                    <div className="w-10 h-10 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center mb-4">
-                        <MapPin size={20} />
-                    </div>
-                    <h4 className="font-bold text-white text-lg">New Delhi</h4>
-                    <p className="text-sm text-gray-400 mt-2 leading-relaxed">
-                        Tower B, Cyber City<br/>
-                        Gurugram, Haryana 122002<br/>
-                        India
-                    </p>
-                </div>
-            </div>
-          </div>
-
         </div>
       </main>
     </div>
