@@ -1,6 +1,6 @@
 import HeroSection from "@/layouts/components/HeroSection";
 import FeatureSections from "@/layouts/components/FeatureSections";
-import { ValuesAndConclusion } from "@/layouts/components/ProductSuite";
+import { ValuesAndConclusion } from "@/layouts/components/ValuesAndConclusion";
 
 export default function Home() {
   return (
