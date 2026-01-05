@@ -32,7 +32,7 @@ const values = [
   },
 ];
 
-export function ValuesAndConclusion() {
+export default function FinalCTA() {
   return (
     <section className="bg-[#F9FAFB] pt-12 pb-12 font-sans text-gray-900 border-t border-gray-200/60">
       <div className="max-w-7xl mx-auto px-6">

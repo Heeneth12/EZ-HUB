@@ -1,6 +1,6 @@
 import HeroSection from "@/layouts/components/HeroSection";
 import FeatureSections from "@/layouts/components/FeatureSections";
-import { ValuesAndConclusion } from "@/layouts/components/ValuesAndConclusion";
+import FinalCTA from "@/layouts/components/FinalCTA";
 
 export default function Home() {
   return (
@@ -16,8 +16,8 @@ export default function Home() {
         <FeatureSections />
       </section>
 
-      <section id="values" aria-label="Values and Conclusion">
-        <ValuesAndConclusion />
+      <section id="final-cta" aria-label="Final call to action">
+        <FinalCTA />
       </section>
     </article>
   );
