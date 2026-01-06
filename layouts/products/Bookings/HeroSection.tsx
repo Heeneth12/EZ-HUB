@@ -1,174 +1,210 @@
 "use client";
-import React from "react";
-import { ArrowRight, Calendar, CheckCircle2, Clock, Users } from "lucide-react";
-import Link from "next/link";
+import {
+  ArrowRight,
+  Calendar,
+  Clock,
+  MoreHorizontal,
+} from "lucide-react";
+import { useState } from "react";
 
-export default function BookingHeroSection() {
-  const handleOpenBookingApp = () => {
-    // Replace with your actual booking app URL
-    window.open("https://app.ez-hub.in/booking?demo=true", "_blank");
+// Simple Avatar Component used in the design
+const Avatar = ({ color }: { color: string }) => (
+  <div
+    className={`w-8 h-8 rounded-full border-2 border-white ${color} flex items-center justify-center text-[10px] text-white font-bold`}
+  >
+    U
+  </div>
+);
+
+export default function BookingHero() {
+  const handleStart = () => {
+    window.open("https://app.ez-hub.in/booking", "_blank");
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-start pt-32 pb-20 bg-white overflow-hidden font-sans text-slate-900 selection:bg-indigo-100 selection:text-indigo-700">
-      
-      {/* 1. Light Grid Pattern */}
-      <div
-        className="absolute inset-0 z-0 opacity-[0.4]"
-        style={{
-          backgroundImage:
-            "linear-gradient(#e2e8f0 1px, transparent 1px), linear-gradient(90deg, #e2e8f0 1px, transparent 1px)",
-          backgroundSize: "40px 40px",
-          maskImage: "linear-gradient(to bottom, black 60%, transparent 100%)", // Fade out grid at bottom
-        }}
-      ></div>
-
-      {/* 2. Top Soft Gradients (The "Light" version of spotlights) */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-indigo-50/80 via-white/50 to-transparent blur-[80px] pointer-events-none z-0" />
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-200/30 blur-[120px] rounded-full pointer-events-none z-0" />
-      <div className="absolute top-[10%] right-[-10%] w-[500px] h-[500px] bg-blue-200/30 blur-[120px] rounded-full pointer-events-none z-0" />
-
-      {/* --- CONTENT LAYER --- */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        
-        {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-indigo-100 bg-indigo-50/50 backdrop-blur-sm mb-8 hover:bg-indigo-50 transition-colors cursor-default shadow-sm">
-          <span className="flex h-2 w-2 rounded-full bg-indigo-500 animate-pulse"></span>
-          <span className="text-xs font-semibold text-indigo-700 tracking-wide uppercase">
-            v2.0 Now Available
-          </span>
-        </div>
-
-        {/* Headline */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.1]">
-          <span className="block text-slate-900">
-            Online appointment
-          </span>
-          {/* Gradient Text */}
-          <span className="block text-transparent bg-clip-text bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-600 pb-2">
-            scheduling made smart
-          </span>
-        </h1>
-
-        {/* Subtext */}
-        <p className="max-w-2xl mx-auto text-lg md:text-xl text-slate-500 mb-10 leading-relaxed font-medium">
-          Eliminate scheduling friction. Automated reminders, calendar sync, 
-          and seamless booking flows for modern service businesses.
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-24">
-          <button
-            onClick={handleOpenBookingApp}
-            className="h-12 px-8 rounded-full bg-slate-900 text-white font-semibold text-sm hover:scale-105 hover:shadow-xl hover:shadow-indigo-500/20 active:scale-95 transition-all duration-300 flex items-center gap-2"
-          >
-            Start Free Trial
-            <ArrowRight size={16} />
-          </button>
-          <Link href="/contact">
-            <button className="h-12 px-8 rounded-full bg-white border border-slate-200 text-slate-700 font-semibold text-sm hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-sm">
-              View Live Demo
-            </button>
-          </Link>
-        </div>
-
-        {/* --- 3D MOCKUP REPRESENTATION --- */}
-        <div className="relative w-full max-w-5xl mx-auto perspective-1000 group">
+    <div className="bg-white font-sans text-slate-900 selection:bg-orange-100 selection:text-orange-600 overflow-hidden">
+      <main className="max-w-7xl mx-auto px-6 pt-12 pb-24 lg:pt-20 lg:pb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
-          {/* Glow behind the mockup */}
-          <div className="absolute -inset-4 bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-blue-500/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-80 transition-all duration-500 z-0"></div>
-
-          {/* The Main Card (Glassmorphism Light) */}
-          <div
-            className="relative z-10 rounded-2xl bg-white/80 backdrop-blur-xl border border-white/40 ring-1 ring-slate-200/50 shadow-2xl shadow-indigo-900/10 overflow-hidden transform transition-transform duration-700 hover:scale-[1.01] hover:rotate-x-1"
-            style={{ transform: "rotateX(1deg)" }}
-          >
-            {/* Browser Header Bar */}
-            <div className="h-10 bg-white border-b border-slate-100 flex items-center px-4 space-x-2">
-                <div className="flex space-x-1.5">
-                    <div className="w-3 h-3 rounded-full bg-slate-200"></div>
-                    <div className="w-3 h-3 rounded-full bg-slate-200"></div>
-                    <div className="w-3 h-3 rounded-full bg-slate-200"></div>
-                </div>
-                <div className="ml-4 px-3 py-1 bg-slate-50 rounded-md text-[10px] text-slate-400 font-medium w-64 text-center">
-                    app.ez-hub.in/booking
-                </div>
+          {/* LEFT: Text Content */}
+          <div className="space-y-8 animate-fade-in-up">
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-orange-50 border border-orange-100 text-orange-700 text-xs font-semibold cursor-pointer hover:bg-orange-100 transition-colors">
+              <span className="px-1.5 py-0.5 rounded-md bg-white border border-orange-200 text-[10px] uppercase tracking-wider">
+                New
+              </span>
+              <span>Advanced Calendar Sync</span>
+              <ArrowRight size={12} />
             </div>
 
-            {/* UI Mockup Content (Place your image here later) */}
-            <div className="grid grid-cols-1 md:grid-cols-12 min-h-[500px] bg-slate-50/50">
-                
-                {/* Sidebar Mockup */}
-                <div className="hidden md:block col-span-3 border-r border-slate-100 bg-white p-6 space-y-6">
-                    <div className="h-8 w-8 bg-indigo-600 rounded-lg mb-6"></div>
-                    <div className="space-y-3">
-                        <div className="h-2 w-24 bg-slate-100 rounded-full"></div>
-                        <div className="h-2 w-16 bg-slate-100 rounded-full"></div>
-                        <div className="h-2 w-20 bg-slate-100 rounded-full"></div>
-                    </div>
-                    <div className="pt-8 space-y-4">
-                         <div className="flex items-center gap-3 p-2 bg-indigo-50 rounded-lg border border-indigo-100">
-                            <Calendar size={16} className="text-indigo-600" />
-                            <div className="h-2 w-20 bg-indigo-200 rounded-full"></div>
-                         </div>
-                    </div>
-                </div>
+            {/* Headline */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.1] text-slate-900">
+              Simplify Your <br />
+              <span className="text-slate-900">Booking Process</span>
+            </h1>
 
-                {/* Main Calendar Area Mockup */}
-                <div className="col-span-12 md:col-span-9 p-8">
-                    <div className="flex justify-between items-center mb-8">
-                        <div>
-                            <h3 className="text-xl font-bold text-slate-800">September 2026</h3>
-                            <p className="text-sm text-slate-400">Manage your appointments</p>
-                        </div>
-                        <div className="flex gap-2">
-                             <div className="h-8 w-24 bg-white border border-slate-200 rounded-md shadow-sm"></div>
-                             <div className="h-8 w-8 bg-indigo-600 rounded-md shadow-sm shadow-indigo-200"></div>
-                        </div>
-                    </div>
+            {/* Subtext */}
+            <p className="text-lg text-slate-500 max-w-lg leading-relaxed">
+              Stay on top of appointments, client reminders, and team scheduling
+              with real-time insights and automated tools.
+            </p>
 
-                    {/* Calendar Grid Representation */}
-                    <div className="grid grid-cols-7 gap-4 mb-4 text-center">
-                         {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
-                             <div key={i} className="text-xs font-bold text-slate-300">{d}</div>
-                         ))}
-                    </div>
-                    <div className="grid grid-cols-7 gap-4">
-                        {[...Array(28)].map((_, i) => (
-                             <div key={i} className={`aspect-square rounded-xl border border-slate-100 p-2 relative ${i === 10 || i === 15 ? 'bg-white shadow-lg shadow-indigo-100 ring-1 ring-indigo-50' : 'bg-white text-slate-300'}`}>
-                                <span className={`text-xs ${i === 10 || i === 15 ? 'text-slate-700 font-bold' : ''}`}>{i + 1}</span>
-                                {i === 10 && (
-                                    <div className="mt-2 p-1.5 bg-indigo-100 rounded-md">
-                                        <div className="flex items-center gap-1 mb-1">
-                                            <Clock size={10} className="text-indigo-600"/>
-                                            <div className="h-1 w-8 bg-indigo-300 rounded-full"></div>
-                                        </div>
-                                        <div className="h-1 w-10 bg-indigo-200 rounded-full"></div>
-                                    </div>
-                                )}
-                                {i === 15 && (
-                                    <div className="mt-2 p-1.5 bg-green-50 rounded-md">
-                                        <div className="flex items-center gap-1 mb-1">
-                                            <CheckCircle2 size={10} className="text-green-600"/>
-                                            <div className="h-1 w-8 bg-green-300 rounded-full"></div>
-                                        </div>
-                                    </div>
-                                )}
-                             </div>
-                        ))}
-                    </div>
-                </div>
+            {/* Buttons */}
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                onClick={handleStart}
+                className="h-12 px-8 rounded-xl bg-orange-600 text-white font-semibold hover:bg-orange-700 hover:-translate-y-1 transition-all duration-300 shadow-xl shadow-orange-200 flex items-center gap-2"
+              >
+                Get Started
+                <ArrowRight size={18} className="opacity-80" />
+              </button>
+
+              <button className="h-12 px-8 rounded-xl bg-white border border-slate-200 text-slate-700 font-semibold hover:border-slate-300 hover:bg-slate-50 transition-all duration-300">
+                Learn More
+              </button>
             </div>
-            
-            {/* Overlay Gradient for depth */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/5 via-transparent to-transparent pointer-events-none"></div>
+
+            {/* Reviews / Social Proof */}
+            <div className="flex items-center gap-4 pt-4">
+              <div className="flex -space-x-3">
+                <Avatar color="bg-blue-500" />
+                <Avatar color="bg-green-500" />
+                <Avatar color="bg-purple-500" />
+                <Avatar color="bg-orange-500" />
+              </div>
+              <div className="text-sm font-medium text-slate-600">
+                <span className="font-bold text-slate-900">4.9</span>
+                <span className="text-orange-500 mx-1">★</span>
+                (10k+ reviews)
+              </div>
+            </div>
           </div>
 
-          {/* Bottom Reflection/Shadow */}
-          <div className="absolute -bottom-10 left-10 right-10 h-10 bg-indigo-600/10 blur-[60px] rounded-[100%] z-[-1]" />
-        </div>
+          {/* RIGHT: Floating UI Composition */}
+          <div className="relative isolate hidden md:block">
+            {/* Decor Circles (Blur) */}
+            <div className="absolute top-0 right-0 w-72 h-72 bg-orange-200/40 rounded-full blur-3xl -z-10" />
+            <div className="absolute bottom-0 left-10 w-72 h-72 bg-blue-200/40 rounded-full blur-3xl -z-10" />
 
-      </div>
-    </section>
+            {/* Main Card: Appointment List */}
+            <div className="relative z-10 bg-white rounded-2xl shadow-2xl shadow-slate-200/60 border border-slate-100 p-6 max-w-md ml-auto transform transition-transform hover:scale-[1.01] duration-500">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-bold text-lg text-slate-800">
+                  Appointments
+                </h3>
+                <span className="text-xs font-medium text-slate-400 cursor-pointer hover:text-orange-600">
+                  View All
+                </span>
+              </div>
+
+              {/* Header Row */}
+              <div className="grid grid-cols-12 text-xs font-semibold text-slate-400 mb-4 px-2">
+                <div className="col-span-5">Client Name</div>
+                <div className="col-span-3 text-center">Time</div>
+                <div className="col-span-3 text-center">Status</div>
+                <div className="col-span-1"></div>
+              </div>
+
+              {/* Row 1 */}
+              <div className="grid grid-cols-12 items-center text-sm py-3 px-2 hover:bg-slate-50 rounded-lg transition-colors group cursor-pointer">
+                <div className="col-span-5 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold text-xs">
+                    RJ
+                  </div>
+                  <span className="font-semibold text-slate-700">Rohan J.</span>
+                </div>
+                <div className="col-span-3 text-center text-slate-500">
+                  10:00 AM
+                </div>
+                <div className="col-span-3 text-center">
+                  <span className="px-2 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">
+                    Confirmed
+                  </span>
+                </div>
+                <div className="col-span-1 text-slate-300 group-hover:text-slate-500">
+                  <MoreHorizontal size={16} />
+                </div>
+              </div>
+
+              {/* Row 2 */}
+              <div className="grid grid-cols-12 items-center text-sm py-3 px-2 hover:bg-slate-50 rounded-lg transition-colors group cursor-pointer">
+                <div className="col-span-5 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-orange-100 text-orange-600 flex items-center justify-center font-bold text-xs">
+                    SK
+                  </div>
+                  <span className="font-semibold text-slate-700">Sarah K.</span>
+                </div>
+                <div className="col-span-3 text-center text-slate-500">
+                  11:30 AM
+                </div>
+                <div className="col-span-3 text-center">
+                  <span className="px-2 py-1 rounded-full bg-orange-100 text-orange-700 text-[10px] font-bold">
+                    Pending
+                  </span>
+                </div>
+                <div className="col-span-1 text-slate-300 group-hover:text-slate-500">
+                  <MoreHorizontal size={16} />
+                </div>
+              </div>
+
+              {/* Row 3 */}
+              <div className="grid grid-cols-12 items-center text-sm py-3 px-2 hover:bg-slate-50 rounded-lg transition-colors group cursor-pointer">
+                <div className="col-span-5 flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center font-bold text-xs">
+                    MP
+                  </div>
+                  <span className="font-semibold text-slate-700">Mike P.</span>
+                </div>
+                <div className="col-span-3 text-center text-slate-500">
+                  02:00 PM
+                </div>
+                <div className="col-span-3 text-center">
+                  <span className="px-2 py-1 rounded-full bg-green-100 text-green-700 text-[10px] font-bold">
+                    Confirmed
+                  </span>
+                </div>
+                <div className="col-span-1 text-slate-300 group-hover:text-slate-500">
+                  <MoreHorizontal size={16} />
+                </div>
+              </div>
+            </div>
+
+            {/* Floating Pop-up Card */}
+            <div className="absolute top-[60%] -left-6 z-20 bg-white p-5 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-slate-100 w-64 animate-bounce-slow">
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                    New Request
+                  </span>
+                  <h4 className="font-bold text-slate-800 text-sm mt-1">
+                    Consultation Call
+                  </h4>
+                </div>
+                <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></div>
+              </div>
+
+              <div className="bg-slate-50 rounded-lg p-3 mb-3 border border-slate-100">
+                <div className="flex items-center gap-2 mb-2">
+                  <Calendar size={12} className="text-slate-400" />
+                  <span className="text-xs text-slate-600 font-medium">
+                    Tomorrow, 4:00 PM
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock size={12} className="text-slate-400" />
+                  <span className="text-xs text-slate-600 font-medium">
+                    30 Minutes
+                  </span>
+                </div>
+              </div>
+
+              <button className="w-full py-2 rounded-lg bg-orange-600 text-white text-xs font-bold hover:bg-orange-700 transition-colors">
+                Accept Booking
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
   );
 }
