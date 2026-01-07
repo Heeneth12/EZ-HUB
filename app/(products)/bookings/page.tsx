@@ -1,6 +1,7 @@
 "use client";
-import BookingHero from "@/layouts/products/bookings/HeroSection";
+import BookingHero from "@layouts/products/bookings/HeroSection";
 import Header from "@layouts/products/bookings/Header";
+
 import {
   Calendar,
   BarChart3,
