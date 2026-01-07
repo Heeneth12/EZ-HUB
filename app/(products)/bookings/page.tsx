@@ -1,6 +1,4 @@
 "use client";
-import Header from "@/layouts/products/bookings/Header";
-import BookingHero from "@/layouts/products/bookings/HeroSection";
 import {
   Calendar,
   BarChart3,
@@ -88,12 +86,10 @@ export default function BookingHeroWithOrangeTheme() {
 
   return (
     <>
-      <Header />
       <div className="bg-white font-sans text-slate-900 selection:bg-orange-100 selection:text-orange-600">
         {/* --- HERO SECTION --- */}
         <main className="max-w-7xl mx-auto px-6 pt-12 pb-24 lg:pt-20 lg:pb-32">
           {/* --- TRUSTED BY SECTION --- */}
-          <BookingHero />
           <div className="mt-24 pt-10 border-t border-slate-100 text-center">
             <p className="text-slate-400 text-sm font-medium mb-8">
               We are trusted by 200+ companies
