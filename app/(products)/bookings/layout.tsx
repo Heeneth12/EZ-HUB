@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "@/layouts/products/bookings/Header_TEMP";
-import Footer from "@/layouts/products/bookings/Footer_TEMP";
+import BookingsHeader from "@/layouts/products/bookings/BookingsHeader";
+import BookingsFooter from "@/layouts/products/bookings/BookingsFooter";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL("https://ez-hub.in/bookings"),
   alternates: {
-    canonical: "https://ez-hub.com/bookings",
+    canonical: "https://ez-hub.in/bookings",
   },
   robots: {
     index: true,
@@ -55,10 +55,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body style={{ backgroundColor: "#EDEDED" }} className="antialiased">
-        <Header/>
-        <main className="grow bg-white font-sans text-slate-900">{children}</main>
-        <Footer/>
+      <body
+        style={{ backgroundColor: "#EDEDED" }}
+        className="antialiased flex flex-col min-h-screen">
+        <BookingsHeader />
+        <main className="grow bg-white font-sans text-slate-900">
+          {children}
+        </main>
+        <BookingsFooter />
       </body>
     </html>
   );
