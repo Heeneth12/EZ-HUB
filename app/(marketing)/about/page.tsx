@@ -55,7 +55,7 @@ export default function AboutUsDark() {
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tight leading-tight">
             We are building the <br />
             <span className="relative inline-block px-4">
-              <span className="relative z-10 text-transparent bg-clip-text bg-linear-to-r from-gray-200 via-red-400 to-orange-700 animate-gradient-x">
+              <span className="relative z-10 text-transparent bg-clip-text bg-linear-to-r from-gray-200 via-slate-400 to-gray-700 animate-gradient-x">
                 future of work.
               </span>
             </span>
@@ -71,7 +71,7 @@ export default function AboutUsDark() {
             {stats.map((stat, idx) => (
               <div
                 key={idx}
-                className="bg-white/5 flex flex-row items-center text-left gap-4 backdrop-blur-xl border border-white/5 hover:border-white/20 rounded-3xl p-6 hover:-translate-y-2 transition-all duration-300 group shadow-2xl shadow-black/50">
+                className="bg-white/5 flex flex-row items-center text-left gap-4 backdrop-blur-xl border border-white/5 hover:border-white/20 rounded-lg p-6 hover:-translate-y-2 transition-all duration-300 group shadow-2xl shadow-black/50">
                 <div
                   className={`w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center ${stat.bg} ${stat.color} group-hover:rotate-12 transition-transform duration-300`}>
                   <stat.icon size={24} />
@@ -94,24 +94,23 @@ export default function AboutUsDark() {
             <div>
               <h2 className="text-4xl font-bold text-white mb-6">
                 Software shouldn't be{" "}
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-red-500 font-hand text-5xl relative top-2">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-red-500 font-hand text-5xl relative">
                   painful.
                 </span>
               </h2>
               <div className="space-y-6 text-lg text-gray-400 leading-relaxed">
                 <p>
-                  We started with a simple idea:{" "}
-                  <strong className="text-white">
-                    Business software is too complex.
-                  </strong>{" "}
-                  It's fragmented, expensive, and ugly. We wanted to change
-                  that.
-                </p>
+                EZH is a growing suite of focused SaaS products designed to work together
+                seamlessly. Each app is built to be{" "}
+                <strong className="text-white">
+                  simple, fast, and reliable
+                </strong>{" "}
+                — so teams can manage inventory, billing, bookings, and daily operations
+                without friction.
+              </p>
                 <p>
-                  Our mission is to provide a range of easy-to-use business
-                  applications that form a complete suite of tools to accompany
-                  any business need. We give millions of companies easy access
-                  to the software they need to run and expand their business.
+                  No unnecessary features. No steep learning curves. Just software that
+                  helps businesses run better, scale faster, and stay in control.
                 </p>
                 <div className="pt-4">
                   <button className="text-white font-bold text-lg flex items-center gap-2 hover:gap-4 transition-all group">
@@ -125,7 +124,7 @@ export default function AboutUsDark() {
             </div>
 
             {/* Visual abstract graphic mimicking app interconnectivity */}
-            <div className="relative h-112.5 bg-[#0A0A0A] rounded-[3rem] overflow-hidden border border-white/5 shadow-2xl">
+            <div className="relative h-100 bg-[#0A0A0A] rounded-lg overflow-hidden border border-white/5 shadow-2xl">
               {/* Background Grid */}
               <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"></div>

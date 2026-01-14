@@ -5,7 +5,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import ez_inventory from "@/assets/images/ez_inv.png";
-import ez_bookings from "@/assets/images/ez_bookings.png";
+import ez_bookings from "@/assets/images/ez_booking.png";
+import ez_assist from "@/assets/images/ez_assist.png";
 
 const features = [
   {
@@ -40,7 +41,7 @@ const features = [
       "Handle customer issues efficiently with ticket management, SLA tracking, internal notes, and remote assistance—all in one support system.",
     icon: Truck,
     color: "bg-teal-50 text-teal-600",
-    image: null,
+    image: ez_assist,
     imageColor: "bg-teal-100",
     route: "/assist",
   },
